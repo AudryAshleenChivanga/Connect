@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Ashletech Connect SRHR</title>
+    <meta name="description" content="Thank you for contacting Ashletech Connect SRHR. We've received your message and will get back to you soon.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Assets/ashletech-connect-srhr-high-resolution-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .thank-you-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fff4ca 0%, #ff4774 20%, #ffb3ba 100%);
+            padding: 20px;
+        }
+        .thank-you-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 40px;
+            color: white;
+            animation: bounceIn 1s ease-out;
+        }
+        .thank-you-card h1 {
+            color: #28a745;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        .thank-you-card p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .contact-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .contact-info h3 {
+            color: #ff4774;
+            margin-bottom: 15px;
+        }
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-method {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .contact-method i {
+            color: #ff4774;
+            margin-right: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ff4774 0%, #ffb3ba 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 71, 116, 0.3);
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .thank-you-card {
+                padding: 30px 20px;
+            }
+            .thank-you-card h1 {
+                font-size: 2rem;
+            }
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+            .btn {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="thank-you-card">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <h1>Thank You!</h1>
+
+            <p>
+                We've received your message and appreciate you reaching out to Ashletech Connect SRHR.
+                Your inquiry is important to us, and we'll get back to you as soon as possible, typically within 24 hours.
+            </p>
+
+            <div class="contact-info">
+                <h3><i class="fas fa-clock"></i> What Happens Next?</h3>
+                <p>
+                    Our team will review your message and respond promptly. If you need immediate assistance,
+                    feel free to reach us through any of the methods below.
+                </p>
+
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <strong>WhatsApp:</strong><br>
+                        +1 650 661 7609
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <strong>Email:</strong><br>
+                        ashletechconnectsrhr@gmail.com
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-link"></i>
+                        <strong>Community:</strong><br>
+                        linktr.ee/ashletechconnect_srhr
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                <strong>Follow us for updates on our journey to empower 10,000+ girls and women by 2030!</strong>
+            </p>
+
+            <div>
+                <a href="index.html" class="btn">Return to Website</a>
+                <a href="https://linktr.ee/ashletechconnect_srhr" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-external-link-alt"></i> Join Our Community
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click tracking for better UX
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // Show a subtle animation on page load
+            const card = document.querySelector('.thank-you-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease-out';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

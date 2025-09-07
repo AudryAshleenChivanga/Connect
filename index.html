@@ -184,7 +184,12 @@
             </div>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">`n`t`t`t<!-- Hidden field for spam protection -->`n`t`t`t<div style="display: none;">`n`t`t`t`t<label>Don't fill this out if you're human: <input name="bot-field" /></label>`n`t`t`t</div>
+                        <!-- Hidden fields for Formspree configuration -->
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - Ashletech Connect SRHR">
+                        <input type="hidden" name="_next" value="https://your-domain.com/thank-you.html">
+                        <input type="hidden" name="_captcha" value="false">
+
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>

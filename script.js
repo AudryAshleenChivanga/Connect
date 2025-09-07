@@ -270,17 +270,47 @@ function setupContactForm() {
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Don't prevent default - let Formspree handle the submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
 
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
 
-            // Simulate form submission
-            showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
+            // Show immediate feedback
+            showNotification('Sending your message...', 'info');
+        });
 
-            // Reset form
-            this.reset();
+        // Listen for form submission success/error
+        // This works because Formspree redirects or shows success page
+        window.addEventListener('load', function() {
+            // Check if we just submitted a form (Formspree adds query parameters)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('message') && urlParams.get('message') === 'success') {
+                showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
+                // Clean up the URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+
+        // Handle form submission errors (network issues, etc.)
+        contactForm.addEventListener('error', function() {
+            showNotification('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.innerHTML = 'Send Message';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Reset button state if form submission fails
+        contactForm.addEventListener('reset', function() {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.innerHTML = 'Send Message';
+                submitBtn.disabled = false;
+            }
         });
     }
 }

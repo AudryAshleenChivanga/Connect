@@ -52,6 +52,30 @@ Ashletech Connect SRHR is an innovative platform that bridges the knowledge gap 
 - **Google Fonts**: Typography (Inter font family)
 - **LocalStorage**: Client-side data persistence for admin functionality
 
+## 📧 Contact Form Integration
+
+Your website includes a fully functional contact form that sends emails directly to `ashletechconnectsrhr@gmail.com`.
+
+### Formspree Setup (Universal):
+- Works on any hosting platform
+- Free tier: 50 submissions/month
+- Setup guide: `FORMSPREE-SETUP.md`
+- Form ID needs to be configured after creating Formspree account
+
+### Netlify Forms (If deploying to Netlify):
+- Completely free, unlimited forms
+- Automatic spam protection
+- Built-in analytics dashboard
+- Setup guide: `NETLIFY-FORMS-SETUP.md`
+
+### Form Features:
+- ✅ Name, Email, Subject, Message fields
+- ✅ Form validation
+- ✅ Loading states and success messages
+- ✅ Thank-you page redirect
+- ✅ Mobile-responsive design
+- ✅ Spam protection
+
 ## 📱 Browser Support
 
 - Chrome/Chromium (recommended)
