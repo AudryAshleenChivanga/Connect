@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Ashletech Connect SRHR</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="icon" href="Assets/ashletech-connect-srhr-high-resolution-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-lock"></i> Admin Login</h2>
+                <span class="modal-close" onclick="closeLoginModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeLoginModal()">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Admin Interface -->
+    <div id="adminInterface" class="admin-container" style="display: none;">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <div class="logo-section">
+                    <img src="Assets/ashletech-connect-srhr-high-resolution-logo.png" alt="Logo" class="admin-logo">
+                    <div class="admin-title">
+                        <h1>Admin Panel</h1>
+                        <p>Ashletech Connect SRHR - Resource Management</p>
+                    </div>
+                </div>
+                <div class="admin-actions">
+                    <button class="btn btn-outline" onclick="exportData()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="btn btn-outline" onclick="importData()">
+                        <i class="fas fa-upload"></i> Import
+                    </button>
+                    <button class="btn btn-outline" onclick="viewSite()">
+                        <i class="fas fa-eye"></i> View Site
+                    </button>
+                    <button class="btn btn-danger" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Navigation -->
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a></li>
+                <li><a href="#resources" class="nav-link" data-section="resources">
+                    <i class="fas fa-book-open"></i> Resources
+                </a></li>
+                <li><a href="#add-resource" class="nav-link" data-section="add-resource">
+                    <i class="fas fa-plus"></i> Add Resource
+                </a></li>
+                <li><a href="#settings" class="nav-link" data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a></li>
+                <li><a href="#analytics" class="nav-link" data-section="analytics">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="admin-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                    <p>Overview of your SRHR resources and platform statistics</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="total-resources">0</h3>
+                            <p>Total Resources</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="total-categories">0</h3>
+                            <p>Categories</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="total-views">1,247</h3>
+                            <p>Total Views</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="favorites-count">89</h3>
+                            <p>Favorites</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="activity-list">
+                        <!-- Activity items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resources Section -->
+            <section id="resources-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-book-open"></i> Manage Resources</h2>
+                    <p>View, edit, and manage all SRHR resources</p>
+                </div>
+
+                <div class="filters-section">
+                    <div class="search-box">
+                        <input type="text" id="resource-search" placeholder="Search resources..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <select id="category-filter" class="filter-select">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+
+                <div class="resources-table-container">
+                    <table class="resources-table" id="resources-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Tags</th>
+                                <th>Last Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resources-table-body">
+                            <!-- Resources will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Add Resource Section -->
+            <section id="add-resource-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-plus"></i> Add New Resource</h2>
+                    <p>Create a new SRHR resource for the platform</p>
+                </div>
+
+                <form id="resource-form" class="resource-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="resource-title">Title *</label>
+                            <input type="text" id="resource-title" name="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resource-category">Category *</label>
+                            <select id="resource-category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="Family Planning">Family Planning</option>
+                                <option value="Sexual Health">Sexual Health</option>
+                                <option value="Reproductive Health">Reproductive Health</option>
+                                <option value="Mental Health">Mental Health</option>
+                                <option value="Identity & Sexuality">Identity & Sexuality</option>
+                                <option value="Emergency Care">Emergency Care</option>
+                                <option value="Relationships">Relationships</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resource-icon">Icon (FontAwesome class)</label>
+                            <input type="text" id="resource-icon" name="icon" placeholder="fas fa-book-open">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resource-tags">Tags (comma-separated)</label>
+                            <input type="text" id="resource-tags" name="tags" placeholder="contraception, birth-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resource-description">Description *</label>
+                        <textarea id="resource-description" name="description" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Resource
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            <i class="fas fa-eraser"></i> Clear Form
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-cog"></i> Settings</h2>
+                    <p>Configure platform settings and preferences</p>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Admin Settings</h3>
+                        <form id="admin-settings">
+                            <div class="form-group">
+                                <label for="admin-username">Username</label>
+                                <input type="text" id="admin-username" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="admin-password">New Password</label>
+                                <input type="password" id="admin-password" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Settings</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Platform Settings</h3>
+                        <form id="platform-settings">
+                            <div class="form-group">
+                                <label for="site-title">Site Title</label>
+                                <input type="text" id="site-title" name="title" value="Ashletech Connect SRHR">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Contact Email</label>
+                                <input type="email" id="contact-email" name="email" value="support@ashletechconnect.org">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Settings</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics-section" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> Analytics</h2>
+                    <p>View platform usage statistics and insights</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Resource Popularity</h3>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Analytics charts will be implemented here</p>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>User Engagement</h3>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-users"></i>
+                            <p>User interaction metrics</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- File Input for Import (hidden) -->
+    <input type="file" id="import-file" accept=".json" style="display: none;">
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
