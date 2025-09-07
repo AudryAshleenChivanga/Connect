@@ -271,46 +271,37 @@ function setupContactForm() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             // Don't prevent default - let Formspree handle the submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+            // e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnLoading = document.getElementById('btnLoading');
+            const formMessage = document.getElementById('formMessage');
 
             // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
 
-            // Show immediate feedback
-            showNotification('Sending your message...', 'info');
-        });
+            // Formspree will handle the actual submission and redirect
+            // If you want to handle it with JavaScript instead, uncomment the code below:
 
-        // Listen for form submission success/error
-        // This works because Formspree redirects or shows success page
-        window.addEventListener('load', function() {
-            // Check if we just submitted a form (Formspree adds query parameters)
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('message') && urlParams.get('message') === 'success') {
+            /*
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
                 showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
-                // Clean up the URL
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-        });
+                this.reset();
 
-        // Handle form submission errors (network issues, etc.)
-        contactForm.addEventListener('error', function() {
-            showNotification('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
-            const submitBtn = this.querySelector('button[type="submit"]');
-            if (submitBtn) {
-                submitBtn.innerHTML = 'Send Message';
-                submitBtn.disabled = false;
-            }
-        });
-
-        // Reset button state if form submission fails
-        contactForm.addEventListener('reset', function() {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            if (submitBtn) {
-                submitBtn.innerHTML = 'Send Message';
-                submitBtn.disabled = false;
-            }
+                // Reset button state
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+            }, 2000);
+            */
         });
     }
 }

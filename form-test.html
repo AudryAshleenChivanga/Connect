@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Test - Ashletech Connect SRHR</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .warning { background: #fff3cd; border-color: #ffeaa7; }
+        .info { background: #d1ecf1; border-color: #bee5eb; }
+        .code { background: #f8f9fa; padding: 10px; border-radius: 4px; font-family: monospace; margin: 10px 0; }
+        .btn { background: #ff4774; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        .btn:hover { background: #e63e5c; }
+        .form-preview { background: white; padding: 20px; border: 2px solid #ff4774; border-radius: 8px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        textarea { height: 100px; }
+        button[type="submit"] { background: #ff4774; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; width: 100%; }
+        button[type="submit"]:hover { background: #e63e5c; }
+    </style>
+</head>
+<body>
+    <h1>📧 Contact Form Configuration Test</h1>
+
+    <div class="test-section success">
+        <h3>✅ Current Form Configuration</h3>
+        <p>Your contact form is configured to send emails to: <strong>ashletechconnectsrhr@gmail.com</strong></p>
+        <p><strong>Form Action:</strong> <code>https://formspree.io/f/YOUR_FORM_ID</code></p>
+        <p><strong>Status:</strong> Ready for Formspree setup</p>
+    </div>
+
+    <div class="test-section info">
+        <h3>🔧 Setup Required</h3>
+        <p>To activate email delivery, you need to:</p>
+        <ol>
+            <li>Create a Formspree account at <a href="https://formspree.io" target="_blank">formspree.io</a></li>
+            <li>Create a new form with email: <code>ashletechconnectsrhr@gmail.com</code></li>
+            <li>Get your Form ID (looks like: <code>xpzjvlnq</code>)</li>
+            <li>Replace <code>YOUR_FORM_ID</code> in <code>index.html</code> line 187</li>
+        </ol>
+    </div>
+
+    <div class="test-section warning">
+        <h3>📝 Formspree Form ID</h3>
+        <p>Replace this in your <code>index.html</code> file:</p>
+        <div class="code">
+        &lt;form id="contactForm" action="https://formspree.io/f/<span style="color: red;">YOUR_FORM_ID</span>" method="POST"&gt;
+        </div>
+        <p>With your actual Form ID from Formspree:</p>
+        <div class="code">
+        &lt;form id="contactForm" action="https://formspree.io/f/<span style="color: green;">xpzjvlnq</span>" method="POST"&gt;
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>📋 Form Preview</h3>
+        <p>This is how your contact form currently looks:</p>
+
+        <div class="form-preview">
+            <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a topic</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Need Support</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="volunteer">Volunteer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="New Contact Form Submission - Ashletech Connect SRHR">
+                <input type="hidden" name="_next" value="thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+
+                <button type="submit" id="submitBtn">
+                    <span id="btnText">Send Message</span>
+                    <span id="btnLoading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Sending...
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <p><em>Note: This preview won't actually send emails until you configure Formspree.</em></p>
+    </div>
+
+    <div class="test-section">
+        <h3>📚 Setup Resources</h3>
+        <ul>
+            <li><a href="FORMSPREE-SETUP.md" target="_blank">📋 Complete Formspree Setup Guide</a></li>
+            <li><a href="NETLIFY-FORMS-SETUP.md" target="_blank">🚀 Netlify Forms Setup Guide</a></li>
+            <li><a href="DEPLOYMENT-GUIDE.md" target="_blank">🌐 Deployment Guide</a></li>
+            <li><a href="thank-you.html" target="_blank">🎉 Thank You Page Preview</a></li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>🧪 Test Your Setup</h3>
+        <p>After configuring Formspree:</p>
+        <ol>
+            <li>Deploy your website to your hosting platform</li>
+            <li>Visit the live contact form</li>
+            <li>Fill out and submit the form</li>
+            <li>Check <code>ashletechconnectsrhr@gmail.com</code> for the submission</li>
+        </ol>
+        <button onclick="window.open('index.html', '_blank')" class="btn">🧪 Test Main Site</button>
+        <button onclick="window.open('thank-you.html', '_blank')" class="btn">🎉 Test Thank You Page</button>
+    </div>
+
+    <div class="test-section success">
+        <h3>✅ You're All Set!</h3>
+        <p>Once you configure Formspree, every form submission will be delivered directly to your Gmail inbox with professional formatting and spam protection.</p>
+        <p><strong>Need help?</strong> Check the setup guides or contact us!</p>
+    </div>
+</body>
+</html>

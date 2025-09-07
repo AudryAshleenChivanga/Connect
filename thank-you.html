@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - Ashletech Connect SRHR</title>
-    <meta name="description" content="Thank you for contacting Ashletech Connect SRHR. We've received your message and will get back to you soon.">
+    <meta name="description" content="Thank you for contacting Ashletech Connect SRHR. We have received your message and will get back to you soon.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Assets/ashletech-connect-srhr-high-resolution-logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,13 +16,13 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #fff4ca 0%, #ff4774 20%, #ffb3ba 100%);
-            padding: 20px;
+            padding: 2rem;
         }
         .thank-you-card {
             background: white;
-            padding: 50px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 3rem;
             text-align: center;
             max-width: 600px;
             width: 100%;
@@ -30,94 +30,145 @@
         .success-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            background: linear-gradient(135deg, #ff4774 0%, #ffb3ba 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 30px;
-            font-size: 40px;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
             color: white;
-            animation: bounceIn 1s ease-out;
+            box-shadow: 0 10px 30px rgba(255, 71, 116, 0.3);
         }
         .thank-you-card h1 {
-            color: #28a745;
-            margin-bottom: 20px;
+            color: #333;
+            margin-bottom: 1rem;
             font-size: 2.5rem;
         }
         .thank-you-card p {
-            color: #6c757d;
+            color: #666;
             font-size: 1.1rem;
-            margin-bottom: 30px;
             line-height: 1.6;
+            margin-bottom: 2rem;
         }
         .contact-info {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 1.5rem;
             border-radius: 10px;
-            margin: 30px 0;
+            margin: 2rem 0;
         }
         .contact-info h3 {
             color: #ff4774;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
         .contact-methods {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
         .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
             background: white;
-            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s;
         }
-        .contact-method i {
-            color: #ff4774;
-            margin-right: 10px;
+        .contact-method:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .response-time {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid #c3e6cb;
+        }
+        .actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary {
             background: linear-gradient(135deg, #ff4774 0%, #ffb3ba 100%);
             color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            margin: 10px;
-            transition: all 0.3s ease;
         }
-        .btn:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 71, 116, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 71, 116, 0.3);
         }
         .btn-secondary {
-            background: #6c757d;
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #ddd;
         }
         .btn-secondary:hover {
-            background: #5a6268;
+            background: #e9ecef;
+            border-color: #adb5bd;
         }
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); opacity: 1; }
+        .social-share {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        .social-share h3 {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .social-links a:hover {
+            transform: scale(1.1);
+            background: #ff4774;
+            color: white;
         }
         @media (max-width: 768px) {
             .thank-you-card {
-                padding: 30px 20px;
+                padding: 2rem;
+                margin: 1rem;
             }
             .thank-you-card h1 {
                 font-size: 2rem;
             }
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
             .contact-methods {
                 grid-template-columns: 1fr;
-            }
-            .btn {
-                display: block;
-                margin: 10px 0;
-                text-align: center;
             }
         }
     </style>
@@ -133,44 +184,70 @@
 
             <p>
                 We've received your message and appreciate you reaching out to Ashletech Connect SRHR.
-                Your inquiry is important to us, and we'll get back to you as soon as possible, typically within 24 hours.
+                Your inquiry about sexual and reproductive health is important to us.
             </p>
 
-            <div class="contact-info">
-                <h3><i class="fas fa-clock"></i> What Happens Next?</h3>
-                <p>
-                    Our team will review your message and respond promptly. If you need immediate assistance,
-                    feel free to reach us through any of the methods below.
-                </p>
+            <div class="response-time">
+                <i class="fas fa-clock"></i>
+                <strong>Expected Response Time:</strong> We typically respond within 24-48 hours during business days.
+            </div>
 
+            <div class="contact-info">
+                <h3><i class="fas fa-address-book"></i> While You Wait</h3>
                 <div class="contact-methods">
-                    <div class="contact-method">
+                    <a href="https://wa.me/16506617609" class="contact-method" target="_blank">
                         <i class="fab fa-whatsapp"></i>
-                        <strong>WhatsApp:</strong><br>
-                        +1 650 661 7609
-                    </div>
-                    <div class="contact-method">
+                        <div>
+                            <strong>WhatsApp</strong><br>
+                            <small>+1 650 661 7609</small>
+                        </div>
+                    </a>
+                    <a href="mailto:ashletechconnectsrhr@gmail.com" class="contact-method">
                         <i class="fas fa-envelope"></i>
-                        <strong>Email:</strong><br>
-                        ashletechconnectsrhr@gmail.com
-                    </div>
-                    <div class="contact-method">
+                        <div>
+                            <strong>Email</strong><br>
+                            <small>ashletechconnectsrhr@gmail.com</small>
+                        </div>
+                    </a>
+                    <a href="https://linktr.ee/ashletechconnect_srhr" class="contact-method" target="_blank">
                         <i class="fas fa-link"></i>
-                        <strong>Community:</strong><br>
-                        linktr.ee/ashletechconnect_srhr
-                    </div>
+                        <div>
+                            <strong>Community</strong><br>
+                            <small>linktr.ee/ashletechconnect_srhr</small>
+                        </div>
+                    </a>
                 </div>
             </div>
 
-            <p>
-                <strong>Follow us for updates on our journey to empower 10,000+ girls and women by 2030!</strong>
-            </p>
-
-            <div>
-                <a href="index.html" class="btn">Return to Website</a>
-                <a href="https://linktr.ee/ashletechconnect_srhr" target="_blank" class="btn btn-secondary">
-                    <i class="fas fa-external-link-alt"></i> Join Our Community
+            <div class="actions">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Return Home
                 </a>
+                <a href="index.html#resources" class="btn btn-secondary">
+                    <i class="fas fa-book-open"></i> Explore Resources
+                </a>
+                <a href="index.html#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact Again
+                </a>
+            </div>
+
+            <div class="social-share">
+                <h3>Help Us Spread Awareness</h3>
+                <p>Share our mission with others who might benefit from our SRHR resources.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/?text=Check out Ashletech Connect SRHR for reliable sexual and reproductive health information: https://your-domain.com" target="_blank" title="Share on WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=Empowering youth with SRHR knowledge - Ashletech Connect: https://your-domain.com" target="_blank" title="Share on Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://your-domain.com" target="_blank" title="Share on Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="mailto:?subject=Check out Ashletech Connect SRHR&body=I found this great resource for sexual and reproductive health information: https://your-domain.com" title="Share via Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -178,28 +255,57 @@
     <script>
         // Add some interactive elements
         document.addEventListener('DOMContentLoaded', function() {
-            // Add click tracking for better UX
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 150);
+            // Add click tracking for better user experience
+            const contactMethods = document.querySelectorAll('.contact-method');
+            contactMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Could add analytics tracking here
+                    console.log('Contact method clicked:', this.textContent.trim());
                 });
             });
 
-            // Show a subtle animation on page load
-            const card = document.querySelector('.thank-you-card');
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-
+            // Add animation to success icon
+            const successIcon = document.querySelector('.success-icon');
             setTimeout(() => {
-                card.style.transition = 'all 0.6s ease-out';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 100);
+                successIcon.style.animation = 'bounce 1s ease-in-out';
+            }, 500);
+
+            // Add confetti effect (optional)
+            createConfetti();
         });
+
+        function createConfetti() {
+            const colors = ['#ff4774', '#ffb3ba', '#fff4ca', '#ff6b6b', '#ffd93d'];
+
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.top = '-10px';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.pointerEvents = 'none';
+
+                    document.body.appendChild(confetti);
+
+                    const animation = confetti.animate([
+                        { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
+                        { transform: 'translateY(100vh) rotate(720deg)', opacity: 0 }
+                    ], {
+                        duration: 3000 + Math.random() * 2000,
+                        easing: 'ease-out'
+                    });
+
+                    animation.onfinish = () => {
+                        confetti.remove();
+                    };
+                }, i * 100);
+            }
+        }
     </script>
 </body>
 </html>
