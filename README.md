@@ -286,6 +286,28 @@ For technical support or content updates:
 
 ---
 
+## 🚀 Deployment
+
+Your website is ready for deployment! Choose from these options:
+
+### Quick Deploy (Recommended):
+1. **GitHub Pages**: Free, easy, and reliable
+2. **Netlify**: Advanced features, still free
+3. **Vercel**: Fast deployment, modern platform
+
+### Deployment Files:
+- 📋 `DEPLOYMENT-GUIDE.md` - Complete deployment instructions
+- 🔧 `deploy.bat` - Windows deployment helper
+- ⚡ `github-deploy.ps1` - PowerShell deployment script
+- 📊 `deployment-status.html` - Deployment status checker
+
+### Live Demo:
+- 🌐 **Main Site**: [Open locally](index.html)
+- 🛠️ **Admin Panel**: [Open locally](admin.html)
+- 📈 **Status Page**: [Check status](deployment-status.html)
+
+---
+
 **Ashletech Connect SRHR** - Empowering youth through knowledge and access to sexual and reproductive health services.
 
 *© 2025 Ashletech Connect SRHR. All rights reserved.*
