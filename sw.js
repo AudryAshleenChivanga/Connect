@@ -1,8 +1,8 @@
 // Service Worker for Ashletech Connect SRHR
 // Enables offline functionality and improves performance
 
-const CACHE_NAME = 'ashletech-connect-v1.0.0';
-const STATIC_CACHE = 'ashletech-static-v1.0.0';
+const CACHE_NAME = 'ashletech-connect-v1.1.0';
+const STATIC_CACHE = 'ashletech-static-v1.1.0';
 
 // Files to cache immediately
 const STATIC_ASSETS = [
@@ -11,6 +11,10 @@ const STATIC_ASSETS = [
     '/styles.css',
     '/script.js',
     '/Assets/ashletech-connect-srhr-high-resolution-logo.png',
+    '/Assets/ashletechpad_drive.jpg',
+    '/Assets/campaign-rights.jpg',
+    '/Assets/campaign-education.jpg',
+    '/Assets/campaign-ias.jpg',
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
 ];
