@@ -178,6 +178,43 @@ function getDefaultResources() {
     ];
 }
 
+function getArticles() {
+    return {
+        'Contraception Methods': {
+            category: 'Family planning',
+            content: '<p>Contraception helps people decide if and when they want to become pregnant. There is no single method that is right for everyone. The best choice depends on your health, preferences, relationship, access, and whether you want protection from sexually transmitted infections.</p><h3>Options to discuss</h3><p>Methods include condoms, pills, injectables, implants, intrauterine devices, patches, rings, and permanent methods. Condoms are the only method that also helps reduce the risk of HIV and many STIs. A trained health worker can explain effectiveness, side effects, and how to use each option.</p><h3>Your choice matters</h3><p>Good contraception counselling is voluntary and respectful. You have the right to ask questions, change methods, and receive care without judgement. Never allow pressure from a partner or provider to decide for you.</p>'
+        },
+        'STI Prevention & Testing': {
+            category: 'Sexual health',
+            content: '<p>Sexually transmitted infections can affect anyone, and many have no visible symptoms. Testing is the only way to know your status. Seeking care early protects your health and helps prevent passing an infection to a partner.</p><h3>Reduce your risk</h3><p>Use condoms correctly every time, talk openly with partners about testing, and avoid sharing needles. Vaccines can help prevent HPV and hepatitis B. If you have symptoms such as unusual discharge, sores, pain when urinating, or pelvic pain, visit a qualified health provider promptly.</p><h3>Testing is care, not shame</h3><p>Health services should protect your privacy. If a test is positive, treatment is available for many infections. Follow the provider\'s instructions and make sure partners are also offered testing and care.</p>'
+        },
+        'Menstrual Health': {
+            category: 'Reproductive health',
+            content: '<p>Periods are a normal body process, but lack of supplies, private toilets, or accurate information can keep girls out of school. Menstrual health means having the knowledge, materials, water, sanitation, and support to manage a period with dignity.</p><h3>Know your pattern</h3><p>Tracking the first day of bleeding can help you understand your cycle. Cycles vary, especially in the first years after periods begin. Seek medical advice for severe pain, very heavy bleeding, fainting, or a sudden major change in your pattern.</p><h3>Build supportive spaces</h3><p>Reusable or disposable products can all be safe when used correctly. Wash hands, change products regularly, and dispose of them safely. Menstrual health is everyone\'s responsibility, not a reason for teasing or exclusion.</p>'
+        },
+        'Pregnancy Planning': {
+            category: 'Family planning',
+            content: '<p>Pregnancy planning is about having the information and support to decide whether, when, and how many children to have. A confidential health visit before pregnancy can cover contraception, existing health conditions, medicines, vaccinations, and emotional wellbeing.</p><h3>Before pregnancy</h3><p>Talk with a trusted provider about folic acid, nutrition, HIV and STI testing, and any conditions that need care. If you do not want to become pregnant now, ask about a method that fits your life. If you are trying to conceive, remember that it can take time and varies from person to person.</p><h3>Support should be respectful</h3><p>Pregnancy decisions belong to the person who is pregnant. Partners, families, and providers should offer support without coercion or violence.</p>'
+        },
+        'Mental Health Support': {
+            category: 'Wellbeing',
+            content: '<p>SRHR concerns can affect how we feel, sleep, study, and connect with others. Stigma, violence, discrimination, pregnancy, or fear of judgement can be heavy to carry. Asking for support is a sign of care for yourself.</p><h3>Small steps can help</h3><p>Share what you are experiencing with someone you trust, keep a simple routine, rest when possible, and spend time in spaces where you feel safe. A counsellor, nurse, doctor, or youth-friendly service can help you find the right support.</p><h3>Get urgent help</h3><p>If you may hurt yourself or someone else, or you are in immediate danger, contact local emergency services or go to the nearest health facility now. You deserve immediate, non-judgemental care.</p>'
+        },
+        'Gender & Sexuality': {
+            category: 'Identity and sexuality',
+            content: '<p>Gender identity, gender expression, sex characteristics, and sexual orientation are related but different parts of who we are. People deserve accurate information and the freedom to understand themselves at their own pace.</p><h3>Respect and safety</h3><p>Consent, privacy, and dignity apply to every person and every relationship. No one should be bullied, outed, threatened, or denied healthcare because of who they are. Choose trusted people and services that respect your confidentiality.</p><h3>Questions are welcome</h3><p>You do not need to have every label or answer immediately. Reliable, affirming information can help you make decisions that feel right for you.</p>'
+        },
+        'Emergency Contraception': {
+            category: 'Emergency care',
+            content: '<p>Emergency contraception can help prevent pregnancy after unprotected sex or when contraception fails, such as when a condom breaks. It works best as soon as possible and does not end an existing pregnancy.</p><h3>Ask quickly</h3><p>Options include emergency contraceptive pills and, in some settings, a copper IUD. The right option and time window depend on the product and your circumstances, so contact a qualified provider or pharmacy promptly for accurate advice.</p><h3>After emergency contraception</h3><p>It does not protect against STIs or future sex. Ask about ongoing contraception and STI or HIV testing if relevant. Seek urgent medical care for severe pain, heavy bleeding, or concerns about assault.</p>'
+        },
+        'Healthy Relationships': {
+            category: 'Relationships and consent',
+            content: '<p>A healthy relationship is built on respect, honesty, safety, and room for both people to make decisions. You should be able to say no, change your mind, keep friendships, and access education and healthcare without fear.</p><h3>Consent is active</h3><p>Consent must be freely given, informed, specific, and ongoing. Silence, pressure, fear, or being asleep or intoxicated is not consent. Someone can change their mind at any time.</p><h3>Notice warning signs</h3><p>Controlling money, phones, clothing, friends, or movement can be abuse. If you feel unsafe, speak with a trusted person or a local support service and make a safety plan. Violence is never your fault.</p>'
+        }
+    };
+}
+
 // Load Resources
 function loadResources() {
     const resourcesGrid = document.getElementById('resources-grid');
@@ -227,6 +264,11 @@ function createResourceCard(resource, index) {
         </div>
     `;
 
+    card.querySelector('.resource-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        openArticle(resource);
+    });
+
     // Add favorite functionality
     const favoriteBtn = card.querySelector('.resource-favorite');
     favoriteBtn.addEventListener('click', function() {
@@ -242,6 +284,38 @@ function createResourceCard(resource, index) {
 
     return card;
 }
+
+function openArticle(resource) {
+    const article = getArticles()[resource.title] || {
+        category: resource.category,
+        content: `<p>${resource.description}</p><p>We are developing more practical information for this topic. Please contact us if you need confidential support or a trusted referral.</p>`
+    };
+    const modal = document.getElementById('article-modal');
+    document.getElementById('article-category').textContent = article.category;
+    document.getElementById('article-title').textContent = resource.title;
+    document.getElementById('article-content').innerHTML = article.content;
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+    modal.querySelector('.article-close').focus();
+}
+
+document.addEventListener('click', function(event) {
+    if (event.target.closest('[data-close-article]')) {
+        const modal = document.getElementById('article-modal');
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+    }
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('article-modal');
+        if (modal && !modal.hidden) {
+            modal.hidden = true;
+            document.body.classList.remove('modal-open');
+        }
+    }
+});
 
 // Setup Animations
 function setupAnimations() {
