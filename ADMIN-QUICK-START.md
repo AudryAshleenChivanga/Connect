@@ -4,20 +4,9 @@
 
 This guide will help you get started with managing your SRHR platform content.
 
-## 🔐 Accessing Admin Panel
+## 🔐 Admin Access
 
-### Option 1: Secret Access (Recommended)
-1. Go to your main website (`index.html`)
-2. **Triple-click the logo** in the top navigation
-3. Admin panel will open in a new tab
-
-### Option 2: Direct Access
-1. Open `admin.html` directly in your browser
-2. Login with these credentials:
-   - **Username:** `admin`
-   - **Password:** `ashletech2025`
-
-**Security**: The admin panel is hidden from public navigation for security reasons.
+The public GitHub Pages site does not expose an admin panel. Content changes should be made through an authenticated private workflow before deployment.
 
 ## 📊 Dashboard Overview
 

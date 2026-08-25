@@ -310,29 +310,5 @@
 
     <script src="script.js?v=20260825"></script>
 
-    <!-- Secret Admin Access (triple-click logo) -->
-    <script>
-        let clickCount = 0;
-        let clickTimer;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const logo = document.querySelector('.logo-image');
-            if (logo) {
-                logo.addEventListener('click', function() {
-                    clickCount++;
-                    clearTimeout(clickTimer);
-
-                    clickTimer = setTimeout(() => {
-                        clickCount = 0;
-                    }, 1000);
-
-                    if (clickCount === 3) {
-                        window.open('admin.html', '_blank');
-                        clickCount = 0;
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>

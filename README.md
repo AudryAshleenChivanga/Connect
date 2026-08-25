@@ -50,7 +50,6 @@ Ashletech Connect SRHR is an innovative platform that bridges the knowledge gap 
 - **Vanilla JavaScript**: Interactive functionality without frameworks
 - **Font Awesome**: Icons and visual elements
 - **Google Fonts**: Typography (Inter font family)
-- **LocalStorage**: Client-side data persistence for admin functionality
 
 ## 📧 Contact Form Integration
 
@@ -192,10 +191,7 @@ Modify the contact details in `index.html`:
 The platform includes a comprehensive admin panel for content management:
 
 ### Access
-- **Secret Access**: Triple-click the logo on the main website to open admin panel
-- **Direct Access**: Navigate to `admin.html` in your browser (for development)
-- **Login Credentials**: `admin` / `ashletech2025`
-- **Contact**: ashletechconnectsrhr@gmail.com | WhatsApp: +1 650 661 7609
+The public GitHub Pages site does not expose an admin panel. Content changes should be made through an authenticated private workflow before deployment.
 
 **Security Note**: Admin panel is hidden from public navigation for security. Use the secret access method or direct URL for admin access.
 
@@ -360,7 +356,6 @@ Your website is ready for deployment! Choose from these options:
 
 ### Live Demo:
 - 🌐 **Main Site**: [Open locally](index.html)
-- 🛠️ **Admin Panel**: [Open locally](admin.html)
 - 📈 **Status Page**: [Check status](deployment-status.html)
 
 ---

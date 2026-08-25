@@ -16,14 +16,7 @@ echo Your website will be available at:
 echo https://[your-username].github.io/[repository-name]
 echo.
 
-echo Admin panel access:
-echo - Triple-click the logo on main site
-echo - Or visit: https://[your-username].github.io/[repository-name]/admin.html
-echo.
-
-echo Credentials:
-echo Username: admin
-echo Password: ashletech2025
+echo Admin access is not exposed on the public site.
 echo.
 
 echo Important Notes:

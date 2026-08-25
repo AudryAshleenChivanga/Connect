@@ -39,7 +39,6 @@ Your website is a static HTML/CSS/JavaScript application that can be deployed to
 #### Step 4: Access Your Site
 - Your site will be available at: `https://[your-username].github.io/ashletech-connect-srhr`
 - It may take 2-3 minutes to deploy
-- The admin panel will be at: `https://[your-username].github.io/ashletech-connect-srhr/admin.html`
 
 ### Option 2: Netlify (Free & Feature-Rich) ⭐⭐
 
@@ -57,7 +56,6 @@ Your website is a static HTML/CSS/JavaScript application that can be deployed to
 
 #### Step 3: Access Your Site
 - Netlify will provide a URL like: `https://amazing-site-name.netlify.app`
-- Admin panel: `https://amazing-site-name.netlify.app/admin.html`
 - Deployment takes about 1-2 minutes
 
 #### Extra Features on Netlify:
@@ -88,7 +86,6 @@ Your website is a static HTML/CSS/JavaScript application that can be deployed to
 ### For Free Hosting (GitHub Pages, Netlify, Vercel):
 - ✅ **LocalStorage authentication** works perfectly
 - ✅ **Admin data** persists in browser storage
-- ✅ **Secret access** via triple-click logo works
 - ⚠️ **Session expires** after 24 hours (configurable)
 
 ### For Production/Custom Domain:
@@ -206,7 +203,6 @@ Need help with deployment?
 
 Once deployed, share your website:
 - **Main site**: `https://your-domain.com`
-- **Admin panel**: `https://your-domain.com/admin.html`
 - **Community**: `https://linktr.ee/ashletechconnect_srhr`
 
 **Congratulations on launching Ashletech Connect SRHR!** 🌟
